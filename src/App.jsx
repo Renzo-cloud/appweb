@@ -4,7 +4,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider, Routes } from "react-router-dom";
 import Navbar from "./component/navbar/navbar";
 import Home from "./pages/Home/Home";
-
+import Analytics from "./pages/Analytics/Analytics";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Gallery from "./pages/Gallery/Gallery";
 import Contact from "./pages/Contact";
@@ -16,6 +16,8 @@ function App() {
       <Router>
         <div className="App">
           <Navbar />
+          <Login />
+          <Analytics/>
           <div className="content">
             <Routes>
               <Route path="/Login" element={<Login />} />

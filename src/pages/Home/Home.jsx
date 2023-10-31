@@ -22,14 +22,14 @@ const Home = () => (
       <section className="min-h-screen">
         <div className="grid grid-cols-2 md:grid-cols-2 gap-8">
           <div>
-            <p className="font-serif text-left space-x-4 text-white ml-10 mx-10">
+            <p className="font-serif text-left space-x-4 text-violet-950 ml-10 mx-10">
               <h1 className="text-3xl">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
                 possimus? Nam veniam,
               </h1>
             </p>
 
-            <div className="font-serif text-white ml-10 mx-10">
+            <div className="font-serif text-violet-950 ml-10 mx-10">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
               saepe praesentium minus mollitia corrupti iure eligendi reiciendis
               doloribus voluptate accusamus doloremque, fugit tempora quo
