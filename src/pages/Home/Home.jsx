@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef} from "react";
+import {motion, useScroll} from "framer-motion";
 
 const slides = [
   {
@@ -12,7 +13,21 @@ const slides = [
   },
 ];
 
-const Home = () => (
+const Home = () => {
+
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  })
+
+  return(
+    <motion.section
+    ref={ref}
+    style={{
+     scale: scrollYProgress,
+    //  opacity: scrollYProgress, 
+    }}>
   <div>
     <header>
       <title>HomePage</title>
@@ -42,7 +57,10 @@ const Home = () => (
             className="h-auto max-w-full rounded-lg  transition duration-300 ease-in-out hover:scale-110"
           />
           <div className="text-center text-white">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, quia sequi suscipit quod </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis,
+              quia sequi suscipit quod
+            </p>
           </div>
         </div>
       </section>
@@ -50,6 +68,8 @@ const Home = () => (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid:cols-3 gap-10">
           <div className="card">
             <div className="p-5 flex flex-col">
+
+               
               <div className="rounded-xl overflow-hidden transition duration-300 ease-in-out hover:scale-110">
                 <img
                   src="https://images.unsplash.com/photo-1697807713049-d171c4dd9d5e?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDd8fHxlbnwwfHx8fHw%3D"
@@ -125,9 +145,10 @@ const Home = () => (
               </a>
             </div>
           </div>
-        </div>
+        </div>    
       </div>
     </main>
   </div>
-);
+  </motion.section>
+)};
 export default Home;

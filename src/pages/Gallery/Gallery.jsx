@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useState, useRef} from "react";
+import {motion, useScroll} from "framer-motion";
+
 
 function Gallery() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  })
   return (
+    <motion.section
+    ref={ref}
+    style={{
+     scale: scrollYProgress,
+    //  opacity: scrollYProgress, 
+    }}>
     // <h1 className="font-serif text-left text-6xl text-white ml-12">
     //   Gallery</h1>
-    <section>
       <div>
-        <div className="bg-gradient-to-tl from-violet-850 to-white h-96 w-full bg-cover bg-center relative ">
+        <div className=" h-96 w-full bg-cover bg-center relative ">
           <img
-            src="https://images.pexels.com/photos/1152359/pexels-photo-1152359.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D"
             className="w-full h-full object-cover absolute mix-blend-overlay"
           />
           <div className="p-24">
-            <h1 className="text-white text-4xl font-bold font-serif">
+            <h1 className="text-black text-4xl font-bold font-serif">
               This is the headline
             </h1>
-            <h2 className="text-white text-2xl font-light mt-5">
+            <h2 className="text-black text-2xl font-light mt-5">
               Some really great stuff goes here
             </h2>
           </div>
@@ -71,7 +83,7 @@ function Gallery() {
           />
         </div>
       </div>
-    </section>
+      </motion.section>
   );
 }
 
